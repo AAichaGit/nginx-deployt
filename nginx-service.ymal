@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+spec:
+  selector:
+    app: nginx
+    # the svc selector {app:nginx} will look for the deplyt labels {app:nginx}
+    # to establish communication.NB=communication between svc and port is
+    # established through labels and selectors
+  ports:
+    - protocol: TCP
+      port: 80
+    # {nginx app svc listens to port 80]
+      targetPort: 8080
+    # {then nginx app itself listens to port 8080}
+    # communication btw pods is establisshed via a svc discory.
+    # this svc is of type ClusterIP bcz it's for internal Co.
+  
+    
