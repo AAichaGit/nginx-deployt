@@ -15,7 +15,7 @@ spec:
     # {nginx app svc listens to port 80]
       targetPort: 8080
     # {then nginx app itself listens to port 8080}
-    # communication btw pods is establisshed via a svc discory.
+    # communication btw pods is establisshed via a svc discovery.
     # this svc is of type ClusterIP bcz it's for internal Co.
   
     
