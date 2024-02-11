@@ -1,0 +1,17 @@
+  282  sudo apt update
+  283  sudo apt upgrade
+  284  sudo apt install curl
+  285  sudo apt-get install apt-transport-https
+  287  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/relea>
+  288  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/relea>
+  289  echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+  290  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  291  kubectl version --client
+  292  kubectl version --client --output=yaml
+  293  nproc
+  303  kubectl get nodes
+  312  sudo snap install --channel stable kubectl --classic
+  313  kubectl get nodes
+  314  kubetcl get pod
+
+  To start our minikube cluster use: {minikube start --driver=docker}
