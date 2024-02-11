@@ -9,9 +9,14 @@
   291  kubectl version --client
   292  kubectl version --client --output=yaml
   293  nproc
+  TO INSTALL MINIKUBE
+  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+  sudo install minikube-linux-amd64 /usr/local/bin/minikube
+  minikube start
+  To start our minikube cluster use: {minikube start --driver=docker}
   303  kubectl get nodes
   312  sudo snap install --channel stable kubectl --classic
   313  kubectl get nodes
   314  kubetcl get pod
 
-  To start our minikube cluster use: {minikube start --driver=docker}
+ 
