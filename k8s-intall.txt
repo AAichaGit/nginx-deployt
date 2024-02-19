@@ -41,6 +41,6 @@ STEPS TO DEPLOY PROMETHEUS & GRAFANA
 {kubectl C0s}
 {kubectl port-forward --address 0.0.0.0 service/prometheus-kube-prometheus-prometheus 9090:9090 &}
 {kubectl port-forward --address 0.0.0.0 service/prometheus-grafana 80:80 &}
-NB: username=admin password=prom-operator for grafana.
+NB for grafana: username=admin password=prom-operator.
 
  
