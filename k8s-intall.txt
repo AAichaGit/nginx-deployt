@@ -25,6 +25,7 @@
 1.3 curl -fsSl -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 1.4 chmod 700 get_helm.sh 
 1.5 ./get_helm.sh
-1.6 sudo apt install tree
+1.6 sudo apt install tree (to view your charts in a tree form)
+1.7 snap install kubectx --classic (for kubens command to see your active namespace)
 
  
