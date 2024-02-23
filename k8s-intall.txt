@@ -5,6 +5,7 @@ APPLICATION SOFTWARES FOR VM
 4.sudo apt install openjdk-8-jre-headless -y (nexus depency if not run as service)
 4.1. docker run -d -p8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus
 5.sudo apt install docker.io -y (for building images)
+6.sudo apt  install docker-compose (for custom app test assocciated to a database app:mongodb, mysql, redis, etc and User_Interface app:mongo-express).
 
 INSTALLATION OF K8S & ...
   282  sudo apt update
