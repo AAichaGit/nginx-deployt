@@ -13,7 +13,10 @@
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
   sudo install minikube-linux-amd64 /usr/local/bin/minikube
   minikube start
-  To start our minikube cluster use: {minikube start --driver=docker}
+  To start our minikube cluster use: 
+  option1:{minikube start --driver=docker}
+  option2:{minikube start --memory=1958mb}
+  option3:from root user {minikube start --force}
   303  kubectl get nodes
   312  sudo snap install --channel stable kubectl --classic
   313  kubectl get nodes
