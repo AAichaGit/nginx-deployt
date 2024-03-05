@@ -19,6 +19,7 @@ INSTALLATION OF K8S & ...
   291  kubectl version --client
   292  kubectl version --client --output=yaml
   293  nproc
+
   TO INSTALL MINIKUBE
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
   sudo install minikube-linux-amd64 /usr/local/bin/minikube
@@ -27,10 +28,10 @@ INSTALLATION OF K8S & ...
   option1:{minikube start --driver=docker}
   option2:{minikube start --memory=1958mb}
   option3:from root user {minikube start --force}
-  303  kubectl get nodes
-  312  sudo snap install --channel stable kubectl --classic
-  313  kubectl get nodes
-  314  kubetcl get pod
+  kubectl get nodes
+  sudo snap install --channel stable kubectl --classic
+  kubectl get nodes
+  kubetcl get pod
 
 Installation of helm in our server
 1.1 sudo apt update
@@ -57,4 +58,30 @@ STEPS TO DEPLOY PROMETHEUS & GRAFANA
 NB for grafana: username=admin password=prom-operator.
 {helm uninstall prometheus prometheus-community/kube-prometheus-satck -n apm}
 
- 
+C0MMAND TO CREATE WEB-SERVER{t2-micro}
+sudo yum update (for RedHad)
+sudo yum install httpd -y 
+vi /etc/httpd/conf/http.conf
+sudo systemctl status httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+cd /var/www/html
+sudo nano cd /var/www/html/index.html (put content in the index.html file)
+IP_address:80 ==>to access it on my browser.
+
+COMMAND TO CREATE A JENKINS-SERVER{t2-medium}
+set hostnamectl jenkins
+sudo apt update
+sudo apt install docker.io -y
+sudo usermod -aG docker ubuntu
+docker run -d -p 8080:8080 -p50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+docker ps
+[open port 8080 on security group==>edit in bound rule==>add rule8080==> choose from anywhere.==>copy pubIP:8080]
+docker exec -it Container_ID /bin/bash
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+
+
+
+
+
