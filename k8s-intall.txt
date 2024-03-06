@@ -66,7 +66,7 @@ sudo systemctl status httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
 cd /var/www/html
-sudo nano cd /var/www/html/index.html (put content in the index.html file)
+sudo nano /var/www/html/index.html (put content in the index.html file)
 IP_address:80 ==>to access it on my browser.
 
 COMMAND TO CREATE A JENKINS-SERVER{t2-medium}
