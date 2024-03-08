@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpd:2.4.41-alpine
+  name: httpd:2.4.41-alpine
+spec:
+  replicas: 1
+  volumes:
+    - name: safari-pv
+      persistentVolumeClaim:
+        claimName: safari-pvc
+  selector:
+    matchLabels:
+      app: httpd:2.4.41-alpine
+  template:
+    metadata:
+      labels:
+        app: httpd:2.4.41-alpine
+    spec:
+      containers:
+      - name: pod1-container
+        image: httpd:2.4.41-alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: safari-pv
+          mountPath: "/tmp/safari-data"
