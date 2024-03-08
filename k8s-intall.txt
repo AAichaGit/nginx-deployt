@@ -2,7 +2,7 @@ CONFIGURE GIT
 sudo apt update
 ssh-keygen -t rsa [id_rsa.pub for GitHub] 
 cat .ssh/id_rsa.pub
-ssh -T git@github.com
+ssh -T git@github.com  >yes    >yes
 git remote add origin git@github.com:AAichaGit/project.git
 git remote set-url origin git@github.com:AAichaGit/project.git
 git branch -M main
