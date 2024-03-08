@@ -1,3 +1,22 @@
+CONFIGURE GIT
+sudo apt update
+ssh-keygen -t rsa [id_rsa.pub for GitHub] 
+cat .ssh/id_rsa.pub
+ssh -T git@github.com
+git remote add origin git@github.com:AAichaGit/project.git
+git remote set-url origin git@github.com:AAichaGit/project.git
+git branch -M main
+git push --set-upstream origin main ==> for 1st git push then the rest of time, just do {git push}
+
+GIT PUSH FROM A CLONE REPO
+eg:from java-maven-app
+N0=create the exact repo name in github from [main branch]:
+git remote set-url origin git@github.com:AAichaGit/java-maven-app.git
+git remote add origin git@github.com:AAichaGit/java-maven-app.git [copy from GitHub]
+git checkout -b new_feature_app
+git push --set-upstream origin new_feature_app
+NB: never push to the master branch.
+
 APPLICATION SOFTWARES FOR VM
 1.sudo apt install git -y (from Git-GitHub and vice versa)
 2.sudo apt install openjdk-11-jre-headless -y (maven depency)
