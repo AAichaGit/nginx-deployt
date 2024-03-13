@@ -88,15 +88,20 @@ cd /var/www/html
 sudo nano /var/www/html/index.html (put content in the index.html file)
 IP_address:80 ==>to access it on my browser.
 
-COMMAND TO CREATE A JENKINS-SERVER{t2-medium}
+COMMAND TO INSTALL JENKINS-SERVER{t2-medium}
 set hostnamectl jenkins
 sudo apt update
 sudo apt install docker.io -y
 sudo usermod -aG docker ubuntu
-docker run -d -p 8080:8080 -p50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker jenkins/jenkins:lts
+docker exec -it -u 0 8cc8e9e0ea5b bin/bash [to exec inside jenkins container as a root user]
+#apt update
+#apt install docker
+#chmod 666 /var/run/docker.sock [to grand the ReadWrite person to jensins service user to execute docker commands inside jenkins container]
+exit
+docker exec -it 8cc8e9e0ea5b bin/bash [to exec inside jenkins container as jenkins service user:regular user]
 docker ps
 [open port 8080 on security group==>edit in bound rule==>add rule8080==> choose from anywhere.==>copy pubIP:8080]
-docker exec -it Container_ID /bin/bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 
 
