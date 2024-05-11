@@ -22,7 +22,7 @@ APPLICATION SOFTWARES FOR VM
 2.sudo apt install openjdk-11-jre-headless -y (maven depency)
 3.sudo apt install maven (build jar or war artefacts)
 4.sudo apt install openjdk-8-jre-headless -y (nexus depency if not run as service)
-4.1. docker run -d -p8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus
+4.1. docker run -d -p8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
 5.sudo apt install docker.io -y (for building images)
 6.sudo apt  install docker-compose (for custom app test assocciated to a database app:mongodb, mysql, redis, etc and User_Interface app:mongo-express).
 
