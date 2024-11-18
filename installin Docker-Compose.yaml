@@ -1,3 +1,4 @@
+'''
 #!/bin/bash
 
 # Update system packages
@@ -35,3 +36,4 @@ docker-compose --version
 
 # Print success message
 echo "Docker and Docker Compose installation completed successfully!"
+'''
