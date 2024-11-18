@@ -1,0 +1,33 @@
+```version: '3'
+services:
+  myapp:
+    image: akemteu/myapp:1.0
+    ports:
+      - '80:80'
+
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - efs-data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - '8000:8081'
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+
+volumes:
+  efs-data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=<EFS_DNS_NAME>,rw  # Replace <EFS_DNS_NAME> with your actual EFS DNS name
+      ```device: ":/mnt/efs"  # The mount point where the EFS file system is mounted
