@@ -30,4 +30,5 @@ volumes:
     driver_opts:
       type: nfs
       o: addr=<EFS_DNS_NAME>,rw  # Replace <EFS_DNS_NAME> with your actual EFS DNS name
-      ```device: ":/mnt/efs"  # The mount point where the EFS file system is mounted
+      device: ":/mnt/efs"  # The mount point where the EFS file system is mounted
+```
