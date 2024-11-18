@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Update system packages
+echo "Updating system packages..."
+sudo apt update && sudo apt upgrade -y  # For Ubuntu
+# sudo yum update -y  # Uncomment for Amazon Linux
+
+# Install Docker
+echo "Installing Docker..."
+sudo apt install docker.io -y  # For Ubuntu
+# sudo yum install docker -y  # Uncomment for Amazon Linux
+
+# Start Docker service and enable it to start on boot
+echo "Starting Docker service..."
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Add user to Docker group to avoid using sudo for Docker commands
+echo "Adding user to Docker group..."
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Install Docker Compose
+echo "Installing Docker Compose..."
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# Apply executable permissions to Docker Compose
+echo "Setting executable permissions for Docker Compose..."
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify Docker and Docker Compose installation
+echo "Verifying Docker and Docker Compose installations..."
+docker -v
+docker-compose --version
+
+# Print success message
+echo "Docker and Docker Compose installation completed successfully!"
