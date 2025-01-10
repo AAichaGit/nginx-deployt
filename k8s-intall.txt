@@ -3,6 +3,8 @@ sudo apt update
 ssh-keygen -t rsa [id_rsa.pub for GitHub] 
 cat .ssh/id_rsa.pub
 ssh -T git@github.com  >yes    >yes
+$ eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 git remote add origin git@github.com:AAichaGit/project.git
 git remote set-url origin git@github.com:AAichaGit/project.git
 git branch -M main
